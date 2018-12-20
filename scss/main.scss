@@ -1,3 +1,158 @@
-p {
-    color: green;
+/* ------------------------------ Application wide variables ------------------------------ */
+$base-size: 24 !default;
+
+/* ------------------------------ Functions ------------------------------ */
+// SASS function to convert px to rem.
+@function calculateRem($size) {
+    $remSize: $size / $base-size;
+    @return #{$remSize}rem;
+}
+/* ----------------------------------------------------------------------- */
+
+// Font sizes
+.font-size-10 {
+    font-size: calculateRem(10) !important;
+}
+
+.font-size-11 {
+    font-size: calculateRem(11) !important;
+}
+
+.font-size-12 {
+    font-size: calculateRem(12) !important;
+}
+
+.font-size-13 {
+    font-size: calculateRem(13) !important;
+}
+
+.font-size-14 {
+    font-size: calculateRem(14) !important;
+}
+
+.font-size-16 {
+    font-size: calculateRem(16) !important;
+}
+
+.font-size-18 {
+    font-size: calculateRem(18) !important;
+}
+
+/*
+    Font weights
+ */
+.font-weight-regular {
+    font-weight: 400;
+}
+
+.font-weight-h4 {
+    font-weight: 500 !important;
+}
+
+.font-weight-bold {
+    font-weight: 600;
+}
+
+.container {
+    max-width: 960px;
+}
+
+// Bootstrap Overrides
+.jumbotron {
+    background-color: transparent !important;
+    margin: auto;
+    max-width: 600px;
+}
+
+// Header - Right
+.contact-detail-container {
+    @extend .font-size-18;
+    line-height: 1;
+
+    .contact-anchor {
+        color: #000;
+    }
+
+    .contact-phone-number {
+        @extend .font-weight-h4;
+        text-decoration: underline;
+    }
+}
+
+.expose-details {
+    .expose-details-label {
+        @extend .font-size-14;
+        @extend .font-weight-h4;
+        text-transform: uppercase;
+    }
+
+    .expose-details-value {
+        @extend .font-size-16;
+        @extend .font-weight-bold;
+    }
+
+    .btn-download {
+        color: #fff;
+        border-radius: 0;
+        width: 100%;
+    }
+}
+
+.expose-select {
+    .select-all {
+        display: flex;
+        align-items: center;
+    }
+}
+
+.expose-list-item {
+    border-top: 1px solid #eaeaea;
+    padding: 0.75rem 0;
+}
+
+@media only screen and (max-width: 780px) {
+    .contact-label {
+        display: none;
+    }
+
+    .col-md-hide {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .expose-content {
+        .row ~ .row {
+            margin-top: 0.5rem;
+        }
+
+        .row:last-child {
+            margin-bottom: 0.5rem;
+        }
+    }
+
+    .contact-label, .contact-phone-number {
+        display: none;
+    }
+
+    .expose-details {
+        .expose-details-value {
+            font-size: 16px !important;
+        }
+    }
+
+    .contact-anchor {
+        IMG {
+            width: 24px;
+            height: 24px;
+        }
+    }
+
+    .col-md-hide, .col-sm-hide {
+        display: none;
+    }
+
+    .expose-list-item * {
+        box-sizing: content-box;
+    }
 }
